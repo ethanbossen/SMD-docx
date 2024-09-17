@@ -58,5 +58,5 @@ func convertToPDF(docxFile string) {
 		return
 	}
 
-	fmt.Printf("Converted %s to %s ", docxFile, pdfFile)
+	fmt.Printf("Converted %s to %s \n", docxFile, pdfFile)
 }
