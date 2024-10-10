@@ -25,11 +25,13 @@ func main() {
 	done := make(chan bool)
 
 	go func() {
+		fmt.Printf("Detecting Windows Files \n")
 		for {
 			select {
 			case event := <-watcher.Events:
 				if event.Op&fsnotify.Create == fsnotify.Create {
 					if filepath.Ext(event.Name) == ".docx" || filepath.Ext(event.Name) == ".doc" || filepath.Ext(event.Name) == ".pptx" {
+						fmt.Printf("File Detected: Begin Convert.")
 						convertToPDF(event.Name)
 					}
 				}
@@ -58,5 +60,5 @@ func convertToPDF(docxFile string) {
 		return
 	}
 
-	fmt.Printf("Converted %s to %s \n", docxFile, pdfFile)
+	fmt.Printf("Converted %s to %s Rest In Piss. \n", docxFile, pdfFile)
 }
