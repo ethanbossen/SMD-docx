@@ -31,7 +31,7 @@ func main() {
 			case event := <-watcher.Events:
 				if event.Op&fsnotify.Create == fsnotify.Create {
 					if filepath.Ext(event.Name) == ".docx" || filepath.Ext(event.Name) == ".doc" || filepath.Ext(event.Name) == ".pptx" {
-						fmt.Printf("File Detected: Begin Convert.")
+						fmt.Printf("File Detected: Begin Convert.\n")
 						convertToPDF(event.Name)
 					}
 				}
