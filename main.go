@@ -16,8 +16,10 @@ func main() {
 	}
 	defer watcher.Close()
 
-	downloadsFolder := filepath.Join(os.Getenv("HOME"), "Downloads")
-	err = watcher.Add(downloadsFolder)
+	// change the specifiedDir to your preferred directory to be monitored
+	
+	specifiedDir := filepath.Join(os.Getenv("HOME"), "Downloads")
+	err = watcher.Add(specifiedDir)
 	if err != nil {
 		log.Fatal(err)
 	}
