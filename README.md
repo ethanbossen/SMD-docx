@@ -1,43 +1,27 @@
-# SMD-docx
+# SMD-docx 
 
-SMD-docx is a simple Go application that watches a specified folder for the creation of .docx, .doc, and .pptx files. Upon detecting a new file, it automatically converts the file to PDF using LibreOffice’s CLI, and then removes the original file from the system.
+SMD-docx is a simple Go application that watches a specified folder for the creation of .docx, .doc and .pptx files. I use it on my downloads folder for school. It will watch the directroy and upon detecting a file of the specific types it will convert it into a PDF using LibreOffice's CLI and remove the original file from the system.
 
-### Features
-	•	File Monitoring: Continuously watches a specified folder (Downloads folder by default) for new .docx, .doc, or .pptx files.
-	•	Automated Conversion: Converts detected files to PDF format using LibreOffice in headless mode.
-	•	File Cleanup: Deletes the original document after conversion to save space.
+## Features
+- **File Monitoring**: continuously watch a speciifed fold for new .docx, .doc or .pptx files
+- **Automated Conversion**: Converts detected files to PDF format using LibreOFfice in headless mode.
+- **File Cleanup**: deletes the original document after conversion
 
-### Requirements
-	•	Go: Make sure you have Go installed. You can install Go from https://golang.org/dl/.
-	•	LibreOffice: The program uses LibreOffice’s command-line tools to convert documents to PDF. Install LibreOffice from here.
-	•	fsnotify: The program uses the fsnotify package to watch for file events. It is included as a dependency in the Go code.
+## Requirements
+- **Go**: Make sure you have Go installed you can install go from [golang.org/dl/](url).
+- **LibreOffice**: This program uses LibreOffice's CLI tools to convert docs to PDF you can install LibreOffice from here: [www.libreoffice.org/download/download/](url)
+- **fsnotify**: This program also uses the fsnotify package to watch for file events. It's incldued as a dependency and will be installed with ```go mod tidy```
 
-### Installation
-	1.	Clone this repository to your local machine:
-
-```git clone https://github.com/<your-username>/SMD-docx.git
-cd SMD-docx```
-
-
-	2.	Install the required dependencies:
-
+## Installation
+1. Clone this repository to your local machine:
+```git clone https://github.com/<your-username>/SMD-docx.git```
+```cd SMD-docx```
+2. Install required dependencies:
 ```go mod tidy```
+3. Ensure LibreOffice is installed and accessible via your system's PATH
 
-
-	3.	Ensure that LibreOffice is installed and accessible via your system’s PATH.
-
-### Usage
-
-	1.	Run the program: This application will monitor the Downloads folder for new .docx, .doc, or .pptx files and convert them to PDFs.
-
-```go run main.go```
-
-	2.	File Detection: Once the program is running, it will continuously check the folder for new files. Upon detecting a new file with the .docx, .doc, or .pptx extension, it will convert it to PDF.
-	3.	Conversion and Cleanup: The original document is removed after the conversion is successful.
-	4.	Custom Folder: If you’d like to monitor a different folder, modify the downloadsFolder variable in the code to the desired path.
-
-### Example
-
-```File Detected: Begin Convert.
-Converted /home/user/Downloads/example.docx to /home/user/Downloads/example.pdf See ya.```
-
+## Usage
+1. Change the specified directory to the one you want to monitor
+2. Run the program with: ```go run main.go```
+3. Download a .docx, .doc, or .pptx
+4. Document is converted and saved to the directory
